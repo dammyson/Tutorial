@@ -36,3 +36,7 @@ Route::get('/logout',  [AuthController::class,'getSignout'])->name('auth.signout
 
 Route::get('verify/resend', '\App\Http\Controllers\TwoFactorController@resend')->name('verify.resend');
 Route::resource('verify', '\App\Http\Controllers\TwoFactorController')->only(['index', 'store']);
+
+
+
+Route::get('/{any}', '\App\Http\Controllers\PagesController@index')->where('any', '.*');
